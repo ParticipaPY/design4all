@@ -1,6 +1,20 @@
-/* @author Marcos baez <marcos@baez.io> */
+/* @author Marcos baez <marcos@baez.io> */  
 $(document).ready(function(){
   
+    // loading papers
+    /* Paper.loadPapers(function(data){          
+      PaperView.renderSummary({
+        collection : data,
+        tmpl : $("#summary-tmpl"),
+        el   : $(".summary")    
+      });
+      PaperView.renderPapers({
+        collection : data, 
+        tmpl : $("#paper-tmpl"),
+        el   : $(".papers"),      
+      });                           
+    }); */
+
     // loading guidelines with no filters by default
     Guide.loadGuidelines(function(data){          
       GuideView.renderSummary({
@@ -64,7 +78,7 @@ var Guide = {
     var list = $.grep(this._guidelines, function(el,i){
        var r=true;
        for(k=0; k<f.length; k++){
-         r = r && (f[k].value == "" || f[k].value == el[f[k].key].toLowerCase());
+         r = r && (f[k].value == "" || f[k].value.toLowerCase() == el[f[k].key].toLowerCase());
        }
       return r;                
     });
@@ -80,13 +94,11 @@ GuideView = {
    */
   renderSummary : function(opt){
     var tot = opt.collection.length;
-    var cat = $.map(opt.collection, function(n){ return n.design_2});
-    var ppr = $.map(opt.collection, function(n){ return n.ref});
+    //var cat = $.map(opt.collection, function(n){ return n.design_2});
+    //var ppr = $.map(opt.collection, function(n){ return n.ref});
     
     var summary = opt.tmpl.text()
-              .replace(/{nguide}/g, tot)
-              .replace(/{npapers}/g, $.unique(cat).length)
-              .replace(/{ncategories}/g, $.unique(ppr).length);
+              .replace(/{npapers}/g, tot);
     $(opt.el).empty().append(summary);
     
   },
@@ -99,14 +111,17 @@ GuideView = {
     
     opt.collection.forEach(function(post){      
       var item = opt.tmpl.text()
-        .replace(/{guideline}/g, post.guideline)
-        .replace(/{ability_1}/g, post.ability_1)
-        .replace(/{ability_2}/g, post.ability_2)
-        .replace(/{design_1}/g, post.design_1)
-        .replace(/{design_2}/g, post.design_2)
-        .replace(/{device}/g, post.device)
-        .replace(/{ref_title}/g, post.ref_title)
-            
+        .replace(/{flag_evaluation}/g, post.flag_evaluation)
+        .replace(/{tested_in}/g, post.tested_in)
+        .replace(/{flag_design}/g, post.flag_design)
+        .replace(/{designed_in}/g, post.designed_in)
+        .replace(/{url}/g, post.url)
+        .replace(/{year}/g, post.year)
+        .replace(/{tech_name}/g, post.tech_name)
+        .replace(/{title}/g, post.title)
+        .replace(/{benefits}/g, post.benefits)
+        .replace(/{technology_1}/g, post.technology_1)
+        .replace(/{technology_2}/g, post.technology_2)
       $(opt.el).append(item);
     });
      

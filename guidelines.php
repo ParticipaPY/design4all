@@ -11,7 +11,11 @@ $context = stream_context_create($contextOptions);
 
 $GUIDE_ITEMS = array();
 
-$GUIDE_URL ='https://docs.google.com/a/unitn.it/spreadsheets/d/1MhMoM17qN7bZNZ1v0xMginvBi9pakR4NFISTp47f9xI/export?format=csv&id=1MhMoM17qN7bZNZ1v0xMginvBi9pakR4NFISTp47f9xI&gid=691960774';
+$GUIDE_URL ='https://docs.google.com/spreadsheets/d/1x3AKMHjB3rkFse9i8IIrh4VWKYA-X1mKWW2Tq9M43Pk/export?format=csv&id=1x3AKMHjB3rkFse9i8IIrh4VWKYA-X1mKWW2Tq9M43Pk&gid=175362859';
+
+//$GUIDE_URL =' https://docs.google.com/a/unitn.it/spreadsheets/d/1MhMoM17qN7bZNZ1v0xMginvBi9pakR4NFISTp47f9xI/export?format=csv&id=1MhMoM17qN7bZNZ1v0xMginvBi9pakR4NFISTp47f9xI&gid=691960774'
+
+
 
 
 /* Load guidelines from Google Spreadsheets */                                   
@@ -27,19 +31,22 @@ function load_csv(){
         while (($row = fgetcsv($handle, 1000, ",")) !== FALSE)
         {
             if ($n > 0 && $row[0] != '') {            
-                            
+            
                 $pub = array(
                     "id" => $row[0],
-                    "count" => $row[1],
-                    "ability_1" => $row[2],
-                    "ability_2" => $row[3],
-                    "severity" => $row[4],
-                    "design_1" => $row[5],
-                    "design_2" => $row[6],
-                    "guideline" => $row[7],
-                    "ref"       => $row[8],
-                    "ref_title" => $row[9],
-                    "device"    => $row[10]                    
+                    "title" => $row[1],
+                    "technology_1" => $row[2],
+                    "technology_2" => $row[3],
+                    "process" => $row[4],
+                    "level_engagement" => $row[5],
+                    "benefits" => $row[6],
+                    "tech_name" => $row[7],
+                    "designed_in" => $row[8],
+                    "flag_design" => $row[9],
+                    "tested_in" => $row[10],
+                    "flag_evaluation" => $row[11],
+                    "url" => $row[12],
+                    "year" => $row[13],
                 );
 
                 array_push($GUIDE_ITEMS, $pub);      

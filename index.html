@@ -2,16 +2,27 @@
 <html>
 
 <head>
+  <meta charset="UTF-8">
   <!-- Twitter bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <!-- Flags -->
+  <link href="img/flags/flags.css" rel=stylesheet type="text/css">
 
   <!-- jquery -->
   <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
   
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  
+  <script type="text/javascript">
+    function show_about() {
+      div_el = document.getElementById("about");
+      if (div_el.offsetHeight == 0) {  // 0 for hidden
+        document.getElementById("about").hidden = false;   
+      } else {
+        document.getElementById("about").hidden = true;   
+      }
+      
+    }
+  </script>
   
 </head>
 
@@ -27,34 +38,50 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#" class="navbar-link">Submit your guidelines</a></li>
-            <li><a href="#" class="navbar-link">About the taxonomy</a></li>
-            <li><a href="#" class="navbar-link">Contact us</a></li>
+            <li><a onClick="show_about()" href="#" class="navbar-link">About the study</a></li>
+            <li><a href="mailto:participa@uc.edu.py" class="navbar-link">Contact us</a></li>
+            <li><a href="http://www.participa.org.py" class="navbar-link">Participa Project</a></li>
           </ul>
         </div>
       </div>
     </nav>
 
+    <div id="about" hidden>
+      <div class="jumbotron">
+        <button type="button" onclick="show_about()" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="alert-heading">Civic Technologies for Social Innovation</h3>
+          <p>Following a systematic approach, in this study, we review academic articles that propose civic technologies for the collaborative creation of solutions for social issues and innovations of public services (i.e., social innovation). In the study, we include only (1) articles that proposed a specially developed ICT solution (e.g., websites, mobile apps, APIs, combination of platforms, etc.) or the novel use of existing platforms (e.g., social networking sites), and (2) articles that validated their proposals through use of cases, field studies, controlled experiments, or other research evaluation methods.<p>
+
+          <p>This tool was implemented with the aim at helping to explore the final list of selected articles in an comfortable manner. For each artcile, it is shown its name and year of publication, the technology proposed, as well as the country in which it was implemented and tested. Use the dropdown selectors below to filter the list.</p>
+          <hr>
+          <h6><b>Authors:</b> Jorge Saldivar, Cristhian Parra, Marcelo Alcaraz, Rebeca Arteta, and Luca Cernuzzi (Catholic University "Nuestra Señora de la Asunción", Paraguay)</h6>
+          <h6 class="label label-danger">The study is under-review in the CSCW Journal</h6>
+      </div>
+    </div>
+
     <div class="filter text-center">
       <h1>
-        I'm designing for <em>senior citizens</em>
+        Show me <em>civic technologies</em>
       </h1>
       <div class="filter-simple">
         <h2 class="form-inline">  
-          with 
-          <select id="filter-severity" class="form-control input-lg"> 
+          for 
+          <select id="filter-process" class="form-control input-lg"> 
             <option value="">any</option> 
-            <option value="mild">mild</option> 
-            <option value="severe">severe</option>
-          </select> severity 
-            on   
-          <select id="filter-ability_1" class="form-control input-lg"> 
+            <option value="planning">planning</option> 
+            <option value="policy-making">policy-making</option>
+            <option value="budgeting">budgeting</option>
+            <option value="innovation">innovation</option>
+            <option value="community engagement">community engagement</option>
+          </select> with   
+          <select id="filter-level_engagement" class="form-control input-lg"> 
             <option value="">any</option> 
-            <option value="perceptual">perceptual</option> 
-            <option value="cognitive">cognitive</option> 
-            <option value="psychomotor">psychomotor</option> 
-            <option value="physical">physical</option> 
-          </select> ability
+            <option value="inform">informing</option> 
+            <option value="consult">consulting</option> 
+            <option value="collaborate">collaborative</option> 
+            <option value="involve">involving</option> 
+            <option value="empower">empowering</option> 
+          </select> level of participation
         </h2>
       </div>
       <div class="filter-advanced">
@@ -63,20 +90,20 @@
     
       <!-- Nav tabs -->
       <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation"><h3 class="tab-title">Design Guidelines</h3></li>
-        <li role="presentation" class="navbar-right"><a href="#papers" aria-controls="papers" role="tab" data-toggle="tab">Papers</a></li>        
-        <li role="presentation" class="active navbar-right"><a href="#guidelines" aria-controls="guidelines" role="tab" data-toggle="tab">Guidelines</a></li>
+        <li role="presentation"><h3 class="tab-title">Civic Technologies</h3></li>
+        <!-- <li role="presentation" class="navbar-right"><a href="#papers" aria-controls="papers" role="tab" data-toggle="tab">Papers</a></li>  -->
+        <li role="presentation" class="active navbar-right"><a href="#guidelines" aria-controls="guidelines" role="tab" data-toggle="tab">Papers</a></li>
       </ul>  
     
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="guidelines">
         
-        <ul class="nav nav-pills options navbar-right">
+        <!-- <ul class="nav nav-pills options navbar-right">
           <li role="presentation"><span class="pill-title">Group by</span></li>
           <li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span> None</a></li>
           <li role="presentation"><a href="#"><span class="glyphicon glyphicon-text-background" aria-hidden="true"></span> Design category</a></li>           
           <li role="presentation"><a href="#"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Paper </a></li>
-        </ul>
+        </ul> -->
         
         <div class="summary text-uppercase">
 
@@ -94,33 +121,53 @@
   </div>
 
   <script id="summary-tmpl" type="text/template">
-    <span>{nguide}</span> guidelines,
-    <span>{npapers}</span> papers,
-    <span>{ncategories}</span> categories
+    <!-- <span>{nguide}</span> guidelines,-->
+    <span>{npapers}</span> papers
+    <!-- <span>{ncategories}</span> categories -->
   </script>
   
   <script id="guide-tmpl" type="text/template">
     <li>
-      <p class="lead">{guideline}</p>
-      <p>{ref_title}</p>
+      <p class="lead">{tech_name} <img src="img/flags/blank.gif" class="flag {flag_design}" alt="Designed in {designed_in}" /></p>
+      <p>Study: <a href={url} target="_blank">{title}</a> ({year})</p>
       <div>
-        <span class="tag">
-          <span class="glyphicon glyphicon-user"></span>
-          <span>{ability_1}</span> 
-          <span class="glyphicon glyphicon-chevron-right"></span>        
-          <span>{ability_2}</span>
+        <span class="label label-primary">
+          <span class="glyphicon glyphicon-hdd"></span>
+          <span>Type of technology</span> 
+          <span class="glyphicon glyphicon-chevron-right"></span> 
         </span>
         <span class="tag-sep"></span>
-        <span class="tag">        
-          <span class="glyphicon glyphicon-text-background"></span>
-          <span>{design_1}</span> 
-          <span class="glyphicon glyphicon-chevron-right"></span>        
-          <span>{design_2}</span>
+        <span class="label label-default">       
+          <span>{technology_1}</span>
+        </span>
+        <span class="tag-sep"></span>
+        <span class="label label-info">
+          <span class="glyphicon glyphicon-cog"></span>        
+          <span>Core technology</span> 
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </span>
+        <span class="tag-sep"></span>
+        <span class="label label-default">
+          <span>{technology_2}</span>
+        </span>
+        <span class="tag-sep"></span>
+        <span class="label label-success">
+        <span>Evaluated in {tested_in}</span>
         </span>
       </div>
     </li>    
   </script>
   <script src="app.js"></script>
+  <br>
+  <footer class="footer">
+    <div class="container">
+      <span class="text-muted"><b>This work was supported by CONACYT, Paraguay through the program PROCIENCIA and resources from the Fund for the Excellence in Education and Research (FEEI by its Spanish acronym).</b></span>
+    </div>
+  </footer>
+  <br>
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  
 
 </body>
 
