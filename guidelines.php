@@ -47,6 +47,7 @@ function load_csv(){
                     "flag_evaluation" => $row[11],
                     "url" => $row[12],
                     "year" => $row[13],
+                    "scale" => $row[14],
                 );
 
                 array_push($GUIDE_ITEMS, $pub);      

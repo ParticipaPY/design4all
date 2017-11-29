@@ -122,6 +122,7 @@ GuideView = {
         .replace(/{benefits}/g, post.benefits)
         .replace(/{technology_1}/g, post.technology_1)
         .replace(/{technology_2}/g, post.technology_2)
+        .replace(/{scale}/g, post.scale)
       $(opt.el).append(item);
     });
      
